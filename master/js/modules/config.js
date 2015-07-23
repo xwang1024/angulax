@@ -11,12 +11,10 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
   // You may have to set <base> tag in index and a routing configuration in your server
   $locationProvider.html5Mode(false);
 
-  // defaults to dashboard
+  // 默认路径
   $urlRouterProvider.otherwise('/app/dashboard');
 
-  // 
-  // Application Routes
-  // -----------------------------------   
+  // 路由表（包括地址、继承关系、模板的url、controller、需要引用的模块、stateParams）  
   $stateProvider
     .state('app', {
         url: '/app',
@@ -508,7 +506,10 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     ;
 
 
-}]).config(['$ocLazyLoadProvider', 'APP_REQUIRES', function ($ocLazyLoadProvider, APP_REQUIRES) {
+}]);
+
+// 外部模块配置
+App.config(['$ocLazyLoadProvider', 'APP_REQUIRES', function ($ocLazyLoadProvider, APP_REQUIRES) {
     'use strict';
 
     // Lazy Load modules configuration
